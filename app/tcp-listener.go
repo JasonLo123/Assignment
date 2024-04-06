@@ -31,8 +31,8 @@ func dialHandler(conn net.Conn) {
 	n, err := conn.Read(buffer)
 	handler.ErrorHandler(err)
 
-	fmt.Println(string(buffer[:n]))
+	fmt.Println("Client: ", string(buffer[:n]))
 
-	_, err = conn.Write([]byte("Server: hello dari server udah keterima"))
+	_, err = conn.Write([]byte("hello dari server udah keterima"))
 	handler.ErrorHandler(err)
 }

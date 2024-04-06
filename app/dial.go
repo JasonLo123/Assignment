@@ -17,13 +17,13 @@ func main() {
 
 	netErr, ok := err.(net.Error)
 
-	_, err = dial.Write([]byte("Client: hello server"))
+	_, err = dial.Write([]byte("hello server"))
 	handler.ErrorHandler(err)
 
 	buffer := make([]byte, 1024)
 	n, err := dial.Read(buffer)
 
-	fmt.Println(string(buffer[:n]))
+	fmt.Println("server: ", string(buffer[:n]))
 
 	if err != nil {
 		if ok && netErr.Timeout() {
